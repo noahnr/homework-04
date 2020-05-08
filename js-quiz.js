@@ -1,25 +1,21 @@
 //timer
-var total_seconds =30*1;
-var c_minutes = parseInt(total_seconds/60);
-var c_seconds = parseInt(total_seconds%60);
-var quizetime = document.createAttribute("quiz-time-left")
-var test = document.createAttribute("test")
+	var count = 3;
+	var interval = setInterval(function(){
+	  document.getElementById('count').innerHTML=count;
+	  count--;
+	  if (count === 0){
+		clearInterval(interval);
+		document.getElementById('count').innerHTML='Done';
+		// or...
+		//alert("You're out of time!");
+		document.getElementById("test").innerHTML = window.addEventListener("load", renderQuestion, false);
+	  }
+	}, 1000);
 
-function CheckTime(){
-    document.getElementById("quize-time-left").innerHTML
-    ='Time Left: ' + c_minutes + 'minutes' + c_seconds + 'seconds' ;
-    if(total_seconds <=0) {
-        setTimeout('test', 1);
-    }
-    else{
-        total_seconds = total_seconds -1;
-        c_minutes = parseInt(total_seconds/60);
-        c_seconds = parseInt(total_seconds%60);
-		setTimeout("CheckTime()", 1000);
 
-    }
-}
-setTimeout("CheckTime()", 1000);
+
+
+
 
 
 
