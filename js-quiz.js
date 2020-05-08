@@ -1,24 +1,31 @@
 //timer
-var total_seconds =60*10;
+var total_seconds =30*1;
 var c_minutes = parseInt(total_seconds/60);
 var c_seconds = parseInt(total_seconds%60);
+var quizetime = document.createAttribute("quiz-time-left")
+var test = document.createAttribute("test")
 
 function CheckTime(){
     document.getElementById("quize-time-left").innerHTML
     ='Time Left: ' + c_minutes + 'minutes' + c_seconds + 'seconds' ;
     if(total_seconds <=0) {
-        setTimeout('document.quiz.submit()', 1);
+        setTimeout('test', 1);
     }
     else{
         total_seconds = total_seconds -1;
         c_minutes = parseInt(total_seconds/60);
         c_seconds = parseInt(total_seconds%60);
-        setTimeout("CheckTime()", 1000);
+		setTimeout("CheckTime()", 1000);
+
     }
 }
 setTimeout("CheckTime()", 1000);
 
 
+
+
+
+//Test starts here
 var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
 var questions = [
     [ "What is the method you use to add an on click event?", ".addEventListener", "Click", ".onclick", "C" ],
@@ -49,6 +56,7 @@ function renderQuestion(){
 	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
 	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 }
+
 function checkAnswer(){
 	choices = document.getElementsByName("choices");
 	for(var i=0; i<choices.length; i++){
