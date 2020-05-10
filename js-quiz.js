@@ -1,5 +1,5 @@
 //timer
-	var count = 3;
+	var count = 100;
 	var interval = setInterval(function(){
 	  document.getElementById('count').innerHTML=count;
 	  count--;
